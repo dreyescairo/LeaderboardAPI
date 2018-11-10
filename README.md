@@ -1,0 +1,2 @@
+# LeaderboardAPI
+Simple leaderboard API
