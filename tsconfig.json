@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    //"module": "commonjs",
+    "target": "es5",
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "alwaysStrict": true,
+    "listEmittedFiles": true,
+    "pretty": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": ["es5", "es2015"]
+  }
+}
