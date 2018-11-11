@@ -1,7 +1,7 @@
 import * as express from "express";
 import * as mongoose from "mongoose";
 import * as bodyParser from "body-parser";
-import Keys from "./config/keys";
+//import Keys from "./config/keys";
 
 const scores: express.Router = require("./routes/api/Scores");
 
@@ -19,8 +19,8 @@ app.use(bodyParser.json());
 //*************************DATABASE************************* */
 
 let connString: string = "";
-const keys = new Keys();
-connString = process.env.MongoUri || keys.getMongoUri();
+//const keys = new Keys();
+connString = process.env.MongoUri; //|| keys.getMongoUri();
 
 mongoose
   .connect(
