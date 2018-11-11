@@ -4,11 +4,11 @@ var express_1 = require("express");
 var Score = require("../../models/score");
 var router = express_1.Router();
 router.get("/test", function (req, res) { return res.json({ msg: "Test worked!" }); });
-router.post("/postScore/:password/:name/:score", function (req, res) {
-    if (req.params.password == "5uYzUyq5oU6woz54l4KDZQ==") {
+router.post("/postScore", function (req, res) {
+    if (req.body.password == "5uYzUyq5oU6woz54l4KDZQ==") {
         var newScore = new Score({
-            name: req.params.name,
-            score: req.params.score,
+            name: req.body.name,
+            score: req.body.score,
             date: Date.now()
         });
         newScore
@@ -23,6 +23,7 @@ router.post("/postScore/:password/:name/:score", function (req, res) {
 });
 router.get("/", function (req, res) {
     Score.find()
+        .sort({ score: -1 })
         .then(function (scores) { return res.json(scores); })
         .catch(function (err) { return res.status(404).json({ error: "No scores found." }); });
 });

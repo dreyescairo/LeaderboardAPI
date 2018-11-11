@@ -2,13 +2,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var mongoose = require("mongoose");
-// import Keys from "./config/keys";
+var bodyParser = require("body-parser");
+var keys_1 = require("./config/keys");
 var scores = require("./routes/api/Scores");
 var app = express();
+//*************************BODY-PARSER************************* */
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(bodyParser.json());
 //*************************DATABASE************************* */
 var connString = "";
-// const keys = new Keys();
-connString = process.env.MongoUri; // || keys.getMongoUri();
+var keys = new keys_1.default();
+connString = process.env.MongoUri || keys.getMongoUri();
 mongoose
     .connect(connString, { useNewUrlParser: true })
     .then(function () { return console.log("MongoDB Connected!"); })
